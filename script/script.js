@@ -1,7 +1,8 @@
 const persopose = document.getElementById("persopose");
 const marcheImages = document.querySelectorAll(".marche img");
 const persomarche3 = document.getElementById("persomarche3"); 
-const persomarche4 = document.getElementById("persomarche4"); 
+const persomarche4 = document.getElementById("persomarche4");
+ 
 let isMoving = false;
 let currentFrame = 0;
 let currentFrame2 = 1;
@@ -88,5 +89,45 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keyup", (event) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         stopWalking();
+    }
+});
+
+const sautImages = document.querySelectorAll(".saut img");
+let isTapping = false;
+let currentTappingFrame = 0;
+
+function startTapping() {
+    if (!isTapping) {
+        isTapping = true;
+        persopose.style.display = "none"; // Cachez l'image de pose
+        animateTapping();
+    }
+}
+
+function animateTapping() {
+    if (isTapping) {
+        sautImages[currentTappingFrame].style.display = "block"; // Affichez l'image actuelle
+
+        setTimeout(function() {
+            sautImages[currentTappingFrame].style.display = "none"; // Cachez l'image actuelle
+
+            currentTappingFrame = (currentTappingFrame + 1) % sautImages.length;
+            if (currentTappingFrame === 0) {
+                stopTapping(); // Arrêtez l'animation une fois que toutes les images ont été affichées
+            } else {
+                animateTapping(); // Affichez la prochaine image
+            }
+        }, 300); // Ajustez la durée d'affichage de chaque image (en millisecondes)
+    }
+}
+
+function stopTapping() {
+    isTapping = false;
+    persopose.style.display = "block"; // Affichez l'image de pose
+}
+
+window.addEventListener("keydown", (event) => {
+    if (event.key === " " && !isTapping) { // Barre d'espace
+        startTapping();
     }
 });

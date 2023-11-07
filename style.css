@@ -73,22 +73,30 @@ body {
     max-width: 260px;
     max-height: 260px;
     transition: opacity 0s ease-in-out, transform 0.2s ease-in-out;
-
 }
 .pose {
     margin-left: 70px;
 }
-
 .saut img {
+    display: none;
     position: absolute;
-    margin-top: 30%;
     max-width: 260px;
     max-height: 260px;
 }
+
 .saut .stevetape2 {
-  transform: scale(1.5);
+  transform: scale(1.45  );
   margin-top: 299px;
-  margin-left: 0px;
+  margin-left: 1px;
+  opacity: 1;
+}
+.saut .stevetape1 {
+    margin-left: -40px;
+    opacity: 1;
+}
+.saut .stevetape0 {
+    margin-left: 66px;
+    opacity: 1;
 }
 .bloc {
     display: none;
