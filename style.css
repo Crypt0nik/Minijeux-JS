@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+
     margin: 0;
     padding: 0;
     font-family: "jetbrains mono", monospace;
@@ -42,6 +42,7 @@ body {
     1px 22px 10px rgba(16,16,16,0.2),
     1px 25px 35px rgba(16,16,16,0.2),
     1px 30px 60px rgba(16,16,16,0.4);
+    
    }
 .title h4 {
     display: none;
@@ -49,11 +50,15 @@ body {
 
 
 .BG {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 10%;
     background: lightgreen;
     padding: 20px;
     border-radius: 85px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 12px 12px 1px 1px rgba(0, 0, 0, 0.2);
+    background-attachment: fixed;
 }
 .BG img {
     border-radius: 70px;
@@ -85,19 +90,65 @@ body {
 }
 
 .saut .stevetape2 {
+  z-index: 3;
   transform: scale(1.45  );
   margin-top: 299px;
   margin-left: 1px;
   opacity: 1;
 }
 .saut .stevetape1 {
+    z-index: 3;
     margin-left: -40px;
     opacity: 1;
 }
 .saut .stevetape0 {
+    z-index: 3;
     margin-left: 66px;
     opacity: 1;
 }
-.bloc {
-    display: none;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+.bloc-surprise-container {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 320px;
+    margin-top: 100px;
+}
+.bloc-surprise-item .bloc {
+    display: flex;
+    filter: brightness(0.8);
+    margin-left: 10px;
+    margin-top: -15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.bloc-surprise-item {
+    z-index: 2;
+    transform: scale(1.1);
+    text-align: center;
+    margin: 0 120px;
+}
+
+.bloc-surprise-item img {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.bloc-surprise-item .surprise{
+    transform: scale(1.1);
+    position: absolute;
+    margin-top: -80px;
+    margin-left: 10px;
+    z-index: 4;
+    
+}
+
